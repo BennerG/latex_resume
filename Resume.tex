@@ -1,0 +1,364 @@
+% ----------------------------------------------
+%			  Header / .cls Meta 					% Can be included in this document or stored in another .cls file
+% ----------------------------------------------	% Similar to the <head> section of an html document
+\documentclass[11pt]{article} 						% Extended the base "article" class
+%
+% Packages -------------------------------------
+\usepackage{geometry}								% Eliminated page margins
+\usepackage{fontawesome5}							% Imported icons
+\usepackage[dvipsnames]{xcolor}						% Used for color definitions; [dvipsnames] option
+%													% allowed me to use names like "black", "gray", and "white"													
+\usepackage{multicol}								% Divided up page in 2 columns; might be better ways							
+\usepackage{tabularx}								% Provided tabular construct with variable width columns "X"
+\usepackage{titlesec} 								% Provided quick way to edit formatting for section and subsection titles
+\usepackage[skins]{tcolorbox}
+
+% Document Colors ------------------------------
+\definecolor{darkBkgd}{HTML}{212121}
+\definecolor{darkerBkgd}{HTML}{1A1A1A}
+\definecolor{darkestBkgd}{HTML}{000000}
+\definecolor{lightBkgd}{HTML}{2A2A2B}
+\definecolor{lightText}{HTML}{D5D5D5} 
+\definecolor{subsectionText}{HTML}{719E5C}
+\definecolor{sectionText}{HTML}{E0E1B3}
+\definecolor{skillBkgd}{HTML}{585858}
+\definecolor{skillLvl}{HTML}{61A6DB}
+\definecolor{jobTitleText}{HTML}{D49C83}
+
+% Font Options ---------------------------------
+% As you can see, LaTeX allows you to import the macros
+% of any package at any point before the 'begin{document}' environment
+\usepackage{inconsolata} 							% Used this to immitate the Consolas font you find
+\renewcommand*\familydefault{\ttdefault}			% in Visual Studio Code.
+\usepackage[T1]{fontenc} 							% I imported the font, and reset the default for the
+\usepackage[utf8]{inputenc}							% document. 'inputect' allows accented chars & 'fontec'
+													% is what fonts use to print chars. They are both recommended.
+
+% Layout Options -------------------------------
+\geometry{letterpaper, portrait, margin=0pt}
+\setlength{\parindent}{0pt}
+\pagecolor{darkBkgd}
+\color{lightText}
+
+\setlength{\columnsep}{-9pc}
+
+\titleformat{\section}%
+	{\centering\LARGE\color{sectionText}}			% Fortmatting
+	{} 												% Numbering, e.g. {\thesection}
+	{0em}											% Indentation length
+	{} 												% After indentation gap, before title text
+	[\LARGE\vspace{.5ex}\titlerule]					% Optional Arguments
+
+\titleformat{\subsection}%
+	{\Large\color{subsectionText}}%
+	{}%
+	{0em}%
+	{}
+
+
+\usepackage{paralist} 								% Using this package to reset distance
+	\let\itemize\compactitem						% between different item components.
+	\let\enditemize\endcompactitem					% I could define my own environment or
+													% reset each [topsep=#length,itemsep,
+													% partopsep,parsep] as options in command: 
+													% \begin[#options]
+										
+
+% Custom Definitions ---------------------------
+% In this section, I used 'newcommand', which is
+% exactly like the 'renewcommand', except the renew
+% version allows you to overwrite existing commands.
+% They both allow you to define custom commands.
+\newcommand{\smpad}{\hspace*{.2em}}
+
+% You can also create custom environments with the
+% 'newenvironment' and 'renewenvironment' commands.
+
+ 
+%
+% ----------------------------------------------
+% ----------------------------------------------
+%			   Start Document
+% ----------------------------------------------
+\begin{document}									% This macro initializes the document
+\begin{multicols}{2}								% Similar to a <body> section of an html document
+\raisebox{1.5ex}{%
+\fcolorbox{lightBkgd}{lightBkgd}{%
+% \hspace{.01\textwidth}
+\begin{minipage}[t][\paperheight]{.38\textwidth}%
+	% \noindent
+	% \newgeometry{width=.15\textwidth}
+	\color{lightText}%
+	\hspace{.001\textwidth}
+	\begin{minipage}[t][\paperheight]{.95\textwidth}%
+%
+% ----------------------------------------------
+%			     Contact Info
+% ----------------------------------------------
+\vspace{2ex}
+\section{\centering\faUserCircle\Huge\hspace{.6em}Your Name}
+%
+\hspace{.3em}
+\begin{tabular}{c r @{\hspace{.33em}} l}
+	\faEnvelope{}&Email:& some.email@gmail.com\vspace{1.25ex}\\
+	\faPhone*{}&Phone:& (555) 555-5555\vspace{1.25ex}\\
+	\faNetworkWired{}&Website:& A-Website.com\vspace{1.25ex}\\
+	\faGithub{}&Github:& bennerg2\vspace{1.25ex}\\
+	\faMapMarker*{}&Address:& 123 Some St\\
+	\hfill&\hfill & City, State 55555\vspace{1.25ex}\\
+\end{tabular}
+%
+% ----------------------------------------------
+%			        Education
+% ----------------------------------------------
+\vspace{2ex}
+\section{\faGraduationCap{} Education}
+	\vspace{1ex}
+	\begin{tabularx}{\textwidth}{@{\hspace{2.9em}}l@{}}
+		% \color{jobTitleText}\Large\textbf{Bachelor of Science}\vspace{1ex}\\
+		\color{jobTitleText}\Large Bachelor of Science\vspace{1ex}\\
+		\large Computer Science \color{jobTitleText}\faLaptopCode \vspace{2ex}\\
+		\color{subsectionText}\Large Some University\vspace{.5ex}\\
+		City, State \dotfill{} DATE\\
+	\end{tabularx}
+%
+%
+% ----------------------------------------------
+%				   Skills
+% ----------------------------------------------
+\vspace{3ex}
+\section{\faCogs{} Skills}
+\vspace{-1ex}
+\subsection{\large\dotfill Programming\dotfill}
+\vspace{-1ex}\hspace{3em}\normalsize
+\begin{tabularx}{\textwidth}{@{}r@{}c@{}}
+	\hfill & \footnotesize Familiar \hspace*{1.7em} Experienced\\
+	Java \smpad&%
+		\color{skillLvl}\rule[.25ex]{8em}{1ex}% 80%
+		\color{skillBkgd}\rule[.25ex]{2em}{1ex}\\
+	C\# \smpad&%
+		\color{skillLvl}\rule[.25ex]{7em}{1ex}% 70%
+		\color{skillBkgd}\rule[.25ex]{3em}{1ex}\\
+	C++ \smpad&%
+		\color{skillLvl}\rule[.25ex]{6em}{1ex}% 60%
+		\color{skillBkgd}\rule[.25ex]{4em}{1ex}\\
+	Objective-C \smpad&%
+		\color{skillLvl}\rule[.25ex]{5em}{1ex}% 50%
+		\color{skillBkgd}\rule[.25ex]{5em}{1ex}\\
+	Go \smpad&%
+		\color{skillLvl}\rule[.25ex]{4em}{1ex}% 40%
+		\color{skillBkgd}\rule[.25ex]{6em}{1ex}\\
+	SML/NJ \smpad&%
+		\color{skillLvl}\rule[.25ex]{3em}{1ex}% 30%
+		\color{skillBkgd}\rule[.25ex]{7em}{1ex}\\
+	% C \smpad&%
+	% 	\color{skillLvl}\rule[.25ex]{3em}{1ex}% 30%
+	% 	\color{skillBkgd}\rule[.25ex]{7em}{1ex}\\
+	% Swift \smpad&%
+	% 	\color{skillLvl}\rule[.25ex]{3em}{1ex}% 30%
+	% 	\color{skillBkgd}\rule[.25ex]{7em}{1ex}\\
+	% MATLAB \smpad&%
+	% 	\color{skillLvl}\rule[.25ex]{8em}{1ex}% 80%
+	% 	\color{skillBkgd}\rule[.25ex]{2em}{1ex}\\
+	% VBA \smpad&%
+	% 	\color{skillLvl}\rule[.25ex]{8em}{1ex}% 80%
+	% 	\color{skillBkgd}\rule[.25ex]{2em}{1ex}\\
+	% Prolog \smpad&%
+	% 	\color{skillLvl}\rule[.25ex]{3em}{1ex}% 30%
+	% 	\color{skillBkgd}\rule[.25ex]{7em}{1ex}\\
+\end{tabularx}
+% \vspace{.5ex}
+\subsection{\large\dotfill Scripting, Markup \& Style\dotfill}
+\vspace{-1ex}\hspace{3em}
+\begin{tabularx}{\textwidth}{@{}r@{}c@{}}
+	\hfill & \footnotesize Familiar \hspace*{1.7em} Experienced\\
+	Python \smpad&%
+		\color{skillLvl}\rule[.25ex]{9em}{1ex}% 90%
+		\color{skillBkgd}\rule[.25ex]{1em}{1ex}\\
+	JavaScript \smpad&% 100%
+		\color{skillLvl}\rule[.25ex]{8em}{1ex}% 80%
+		\color{skillBkgd}\rule[.25ex]{2em}{1ex}\\
+	PHP \smpad&%
+		\color{skillLvl}\rule[.25ex]{5em}{1ex}% 50%
+		\color{skillBkgd}\rule[.25ex]{5em}{1ex}\\
+	Bash \smpad&%
+		\color{skillLvl}\rule[.25ex]{3em}{1ex}% 30%
+		\color{skillBkgd}\rule[.25ex]{7em}{1ex}\\
+	HTML \smpad&%
+		\color{skillLvl}\rule[.25ex]{9em}{1ex}% 90%
+		\color{skillBkgd}\rule[.25ex]{1em}{1ex}\\
+	CSS \smpad&%
+		\color{skillLvl}\rule[.25ex]{9em}{1ex}% 90%
+		\color{skillBkgd}\rule[.25ex]{1em}{1ex}\\
+\end{tabularx}
+\vspace{-1ex}
+\subsection{\large\dotfill Databases, Frameworks \& Environments\dotfill}
+\vspace{-1ex}\hspace{4.25em}
+\begin{tabularx}{\textwidth}{@{}r@{}c@{}}
+	\hfill & \footnotesize Familiar \hspace*{1.7em} Experienced\\
+	MS SQL \smpad&%
+		\color{skillLvl}\rule[.25ex]{7em}{1ex}% 70%
+		\color{skillBkgd}\rule[.25ex]{3em}{1ex}\\
+	MySQL \smpad&%
+		\color{skillLvl}\rule[.25ex]{7em}{1ex}% 70%
+		\color{skillBkgd}\rule[.25ex]{3em}{1ex}\\
+	ReactJS \smpad&% Framework
+		\color{skillLvl}\rule[.25ex]{2em}{1ex}% 20%
+		\color{skillBkgd}\rule[.25ex]{8em}{1ex}\\
+	NodeJS \smpad&% Runtime Environment
+		\color{skillLvl}\rule[.25ex]{2em}{1ex}% 20%
+		\color{skillBkgd}\rule[.25ex]{8em}{1ex}\\
+\end{tabularx}
+\vspace{-1ex}
+\subsection{\large\dotfill Technologies \& Concepts\dotfill}
+\vspace{-1ex}\hspace{.5em}
+\begin{tabularx}{\textwidth}{@{}r@{}c@{}}
+	\hfill & \footnotesize Familiar \hspace*{1.7em} Experienced\\
+	\small Data Structures \smpad&%
+		\color{skillLvl}\rule[.25ex]{7.5em}{1ex}% 75%
+		\color{skillBkgd}\rule[.25ex]{2.5em}{1ex}\\
+	\small Design Patterns \smpad&%
+		\color{skillLvl}\rule[.25ex]{5em}{1ex}% 50%
+		\color{skillBkgd}\rule[.25ex]{5em}{1ex}\\
+	Git \smpad&%
+		\color{skillLvl}\rule[.25ex]{4em}{1ex}% 40%
+		\color{skillBkgd}\rule[.25ex]{6em}{1ex}\\
+	\small Machine Learning \smpad&%
+		\color{skillLvl}\rule[.25ex]{3em}{1ex}% 30%
+		\color{skillBkgd}\rule[.25ex]{7em}{1ex}\\
+	Networking \smpad&%
+		\color{skillLvl}\rule[.25ex]{3em}{1ex}% 30%
+		\color{skillBkgd}\rule[.25ex]{7em}{1ex}\\
+\end{tabularx}
+%
+\end{minipage}\end{minipage}}}%
+%
+% ----------------------------------------------
+% ----------------------------------------------
+%			Right-hand Column
+% ----------------------------------------------
+% ----------------------------------------------
+%
+\columnbreak
+
+\raisebox{1.5ex}{%
+\fcolorbox{darkBkgd}{darkBkgd}{%
+\begin{minipage}[t][\paperheight]{.55\textwidth}
+	\color{lightText}	
+%
+% ----------------------------------------------
+%			Employment History
+% ----------------------------------------------
+\vspace{2ex}
+\section{\faBriefcase{} Professional Experience}
+\subsection{%
+	\begin{tabularx}{\textwidth}{@{}l@{}X@{}c@{}}
+		\textbf{Company1}\smpad&\small\dotfill&\smpad\large City, State
+	\end{tabularx}%
+}
+\begin{tabular*}{\textwidth}{@{}l@{\extracolsep{\fill}}r@{}}
+	\color{jobTitleText}\textbf{JobTitle1}%
+	& \footnotesize StartDATE-EndDATE
+\end{tabular*}
+\begin{itemize}
+	\raggedright
+	\item Bullet point 1
+	\item Bullet point 2
+	\item Bullet point 3
+\end{itemize}
+\vspace{1ex}
+%
+\begin{tabular*}{\textwidth}{@{}l@{\extracolsep{\fill}}r@{}}
+	\color{jobTitleText}\textbf{JobTitle2}%
+	& \footnotesize StartDATE-EndDATE
+\end{tabular*}
+\begin{itemize}
+	\raggedright
+	\item Bullet point 1
+\end{itemize}
+\vspace{1ex}
+%
+\begin{tabular*}{\textwidth}{@{}l@{\extracolsep{\fill}}r@{}}
+	\color{jobTitleText}\textbf{JobTitle3}% 
+	& \footnotesize StartDATE-EndDATE
+\end{tabular*}
+\begin{itemize}
+	\raggedright
+	\item Bullet point 1
+\end{itemize}
+%
+%
+\vspace{-2ex}
+\subsection{%
+	\begin{tabularx}{\textwidth}{@{}l@{}X@{}r@{}}
+		\textbf{Company2}\smpad&\small\dotfill&\smpad\large City, State
+	\end{tabularx}%
+}
+\begin{tabular*}{\textwidth}{@{}l@{\extracolsep{\fill}}r@{}}
+	\color{jobTitleText}\textbf{JobTitle1}%
+	& \footnotesize StartDATE-EndDATE
+\end{tabular*}
+\begin{itemize}
+	\raggedright
+	\item Bullet point 1
+\end{itemize}
+\vspace{1ex}
+\begin{tabular*}{\textwidth}{@{}l@{\extracolsep{\fill}}r@{}}
+	\color{jobTitleText}\textbf{JobTitle2}%
+	& \footnotesize StartDATE-EndDATE
+\end{tabular*}
+\begin{itemize}
+	\raggedright
+	\item Bullet point 1
+\end{itemize}
+%
+%
+\vspace{-2ex}
+\subsection{%
+	\begin{tabularx}{\textwidth}{@{}l@{}X@{}r@{}}
+		\textbf{Company3}\smpad&\small\dotfill&\smpad\large City, State
+	\end{tabularx}%
+}
+\begin{tabular*}{\textwidth}{@{}l@{\extracolsep{\fill}}r@{}}
+	\color{jobTitleText}\textbf{JobTitle1}%
+	& \footnotesize StartDATE-EndDATE
+\end{tabular*}
+\begin{itemize}
+	\raggedright
+	\item Bullet point 1
+\end{itemize}
+%
+%
+% ----------------------------------------------
+%				Projects
+% ----------------------------------------------
+\vspace{-2ex}
+\section{\faSave[regular]{} Projects}
+% \vspace{-1ex}
+\begin{tabular*}{\textwidth}{@{\hspace{.5em}}l|l@{\hspace{.5em}}}
+	\color{jobTitleText}\textbf{Project1} 			& Some text here about the project.\\
+	\color{lightText}(Language) 					& Some more text here about the project.\\
+	\hfill 											& Some more text here about the project.\\
+	\hfill 											& Some more text here about the project.\\
+	\hfill 											& Some more text here about the project.\vspace{1.5ex}\\
+	\color{jobTitleText}\textbf{Project2} 			& Some text here about the project.\\
+	\color{jobTitleText}\textbf{2nd line} 			& Some more text here about the project.\\
+	\color{lightText} (Language) 					& Some more text here about the project.\\
+	\hfill 											& Some more text here about the project.\\
+	\hfill 											& Some more text here about the project.\\
+	\hfill 											& Some more text here about the project.\\
+	\hfill 											& Some more text here about the project.\vspace{1.5ex}\\
+	\color{jobTitleText}\textbf{Project3} 			& Some text here about the project.\\
+	\color{jobTitleText}\textbf{2nd line} 			& Some more text here about the project.\\
+	\color{lightText} (Language1, 					& Some more text here about the project.\\
+	\color{lightText} Package1 \& 		 			& Some more text here about the project.\\
+	\color{lightText} Package2)						& Some more text here about the project.\\
+	\hfill 											& Some more text here about the project.\vspace{1.5ex}\\
+	\color{jobTitleText}\textbf{Project4} 			& Some text here about the project.\\
+	\color{jobTitleText}\textbf{2nd line} 			& Some more text here about the project.\\
+	\color{lightText} (Language) 					& Some more text here about the project.\\
+\end{tabular*}
+%
+\end{minipage}}}
+\end{multicols}
+\end{document}
