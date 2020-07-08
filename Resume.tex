@@ -1,19 +1,28 @@
 % ----------------------------------------------
-%			  Header / .cls Meta 					% Can be included in this document or stored in another .cls file
-% ----------------------------------------------	% Similar to the <head> section of an html document
-\documentclass[11pt]{article} 						% Extended the base "article" class
+% Header / .cls Meta 
+% ----------------------------------------------
+% Can be included in this document or stored in another .cls file
+% Similar to the <head> section of an html document
+% Extended the base "article" class
+\documentclass[11pt]{article}
 %
 % Packages -------------------------------------
-\usepackage{geometry}								% Eliminated page margins
-\usepackage{fontawesome5}							% Imported icons
-\usepackage[dvipsnames]{xcolor}						% Used for color definitions; [dvipsnames] option
-%													% allowed me to use names like "black", "gray", and "white"													
-\usepackage{multicol}								% Divided up page in 2 columns; might be better ways							
-\usepackage{tabularx}								% Provided tabular construct with variable width columns "X"
-\usepackage{titlesec} 								% Provided quick way to edit formatting for section and subsection titles
-\usepackage[skins]{tcolorbox}
+% Eliminated page margins
+\usepackage{geometry}
+% Imported icons
+\usepackage{fontawesome5}
+% Used for color definitions; [dvipsnames] option
+% allowed me to use names like "black", "gray", and "white"							
+\usepackage[dvipsnames]{xcolor}
+% Divided up page in 2 columns; might be better ways 
+\usepackage{multicol}
+% Provided tabular construct with variable width columns "X"
+\usepackage{tabularx}
+% Provided quick way to edit formatting for section and subsection titles
+\usepackage{titlesec}
 
 % Document Colors ------------------------------
+% here I defined colors, using HTML hexidecimal notation
 \definecolor{darkBkgd}{HTML}{212121}
 \definecolor{darkerBkgd}{HTML}{1A1A1A}
 \definecolor{darkestBkgd}{HTML}{000000}
@@ -28,11 +37,14 @@
 % Font Options ---------------------------------
 % As you can see, LaTeX allows you to import the macros
 % of any package at any point before the 'begin{document}' environment
-\usepackage{inconsolata} 							% Used this to immitate the Consolas font you find
-\renewcommand*\familydefault{\ttdefault}			% in Visual Studio Code.
-\usepackage[T1]{fontenc} 							% I imported the font, and reset the default for the
-\usepackage[utf8]{inputenc}							% document. 'inputect' allows accented chars & 'fontec'
-													% is what fonts use to print chars. They are both recommended.
+% Used this to immitate the Consolas font you find in Visual Studio Code.
+\usepackage{inconsolata}
+\renewcommand*\familydefault{\ttdefault}
+% I imported the font, and reset the default for the
+% document. 'inputect' allows accented chars & 'fontec'
+% is what fonts use to print chars. They are both recommended.
+\usepackage[T1]{fontenc} 		
+\usepackage[utf8]{inputenc}
 
 % Layout Options -------------------------------
 \geometry{letterpaper, portrait, margin=0pt}
@@ -43,11 +55,16 @@
 \setlength{\columnsep}{-9pc}
 
 \titleformat{\section}%
-	{\centering\LARGE\color{sectionText}}			% Fortmatting
-	{} 												% Numbering, e.g. {\thesection}
-	{0em}											% Indentation length
-	{} 												% After indentation gap, before title text
-	[\LARGE\vspace{.5ex}\titlerule]					% Optional Arguments
+	% Fortmatting
+	{\centering\LARGE\color{sectionText}}
+	% Numbering, e.g. {\thesection}
+	{}
+	% Indentation length
+	{0em}
+	% After indentation gap, before title text
+	{}
+	% Optional arguments that appear after the title
+	[\LARGE\vspace{.5ex}\titlerule]
 
 \titleformat{\subsection}%
 	{\Large\color{subsectionText}}%
@@ -55,14 +72,12 @@
 	{0em}%
 	{}
 
-
-\usepackage{paralist} 								% Using this package to reset distance
-	\let\itemize\compactitem						% between different item components.
-	\let\enditemize\endcompactitem					% I could define my own environment or
-													% reset each [topsep=#length,itemsep,
-													% partopsep,parsep] as options in command: 
-													% \begin[#options]
-										
+% Using this package to reset distance between different item components.
+% I could define my own environment or reset each [topsep=#length,itemsep,
+% partopsep,parsep] as options in command: \begin[#options]
+\usepackage{paralist} 			
+	\let\itemize\compactitem 
+	\let\enditemize\endcompactitem
 
 % Custom Definitions ---------------------------
 % In this section, I used 'newcommand', which is
@@ -73,27 +88,24 @@
 
 % You can also create custom environments with the
 % 'newenvironment' and 'renewenvironment' commands.
-
  
 %
 % ----------------------------------------------
 % ----------------------------------------------
 %			   Start Document
 % ----------------------------------------------
-\begin{document}									% This macro initializes the document
-\begin{multicols}{2}								% Similar to a <body> section of an html document
+% This macro initializes the document, like the <body> section of an html document
+\begin{document}									
+\begin{multicols}{2}
 \raisebox{1.5ex}{%
 \fcolorbox{lightBkgd}{lightBkgd}{%
-% \hspace{.01\textwidth}
 \begin{minipage}[t][\paperheight]{.38\textwidth}%
-	% \noindent
-	% \newgeometry{width=.15\textwidth}
 	\color{lightText}%
 	\hspace{.001\textwidth}
 	\begin{minipage}[t][\paperheight]{.95\textwidth}%
 %
 % ----------------------------------------------
-%			     Contact Info
+% Contact Info
 % ----------------------------------------------
 \vspace{2ex}
 \section{\centering\faUserCircle\Huge\hspace{.6em}Your Name}
@@ -109,13 +121,12 @@
 \end{tabular}
 %
 % ----------------------------------------------
-%			        Education
+% Education
 % ----------------------------------------------
 \vspace{2ex}
 \section{\faGraduationCap{} Education}
 	\vspace{1ex}
 	\begin{tabularx}{\textwidth}{@{\hspace{2.9em}}l@{}}
-		% \color{jobTitleText}\Large\textbf{Bachelor of Science}\vspace{1ex}\\
 		\color{jobTitleText}\Large Bachelor of Science\vspace{1ex}\\
 		\large Computer Science \color{jobTitleText}\faLaptopCode \vspace{2ex}\\
 		\color{subsectionText}\Large Some University\vspace{.5ex}\\
@@ -124,7 +135,7 @@
 %
 %
 % ----------------------------------------------
-%				   Skills
+% Skills
 % ----------------------------------------------
 \vspace{3ex}
 \section{\faCogs{} Skills}
@@ -151,21 +162,6 @@
 	SML/NJ \smpad&%
 		\color{skillLvl}\rule[.25ex]{3em}{1ex}% 30%
 		\color{skillBkgd}\rule[.25ex]{7em}{1ex}\\
-	% C \smpad&%
-	% 	\color{skillLvl}\rule[.25ex]{3em}{1ex}% 30%
-	% 	\color{skillBkgd}\rule[.25ex]{7em}{1ex}\\
-	% Swift \smpad&%
-	% 	\color{skillLvl}\rule[.25ex]{3em}{1ex}% 30%
-	% 	\color{skillBkgd}\rule[.25ex]{7em}{1ex}\\
-	% MATLAB \smpad&%
-	% 	\color{skillLvl}\rule[.25ex]{8em}{1ex}% 80%
-	% 	\color{skillBkgd}\rule[.25ex]{2em}{1ex}\\
-	% VBA \smpad&%
-	% 	\color{skillLvl}\rule[.25ex]{8em}{1ex}% 80%
-	% 	\color{skillBkgd}\rule[.25ex]{2em}{1ex}\\
-	% Prolog \smpad&%
-	% 	\color{skillLvl}\rule[.25ex]{3em}{1ex}% 30%
-	% 	\color{skillBkgd}\rule[.25ex]{7em}{1ex}\\
 \end{tabularx}
 % \vspace{.5ex}
 \subsection{\large\dotfill Scripting, Markup \& Style\dotfill}
@@ -202,10 +198,10 @@
 	MySQL \smpad&%
 		\color{skillLvl}\rule[.25ex]{7em}{1ex}% 70%
 		\color{skillBkgd}\rule[.25ex]{3em}{1ex}\\
-	ReactJS \smpad&% Framework
+	React \smpad&% Framework
 		\color{skillLvl}\rule[.25ex]{2em}{1ex}% 20%
 		\color{skillBkgd}\rule[.25ex]{8em}{1ex}\\
-	NodeJS \smpad&% Runtime Environment
+	Node.js \smpad&% Runtime Environment
 		\color{skillLvl}\rule[.25ex]{2em}{1ex}% 20%
 		\color{skillBkgd}\rule[.25ex]{8em}{1ex}\\
 \end{tabularx}
@@ -235,7 +231,7 @@
 %
 % ----------------------------------------------
 % ----------------------------------------------
-%			Right-hand Column
+% Right-hand Column
 % ----------------------------------------------
 % ----------------------------------------------
 %
@@ -247,7 +243,7 @@
 	\color{lightText}	
 %
 % ----------------------------------------------
-%			Employment History
+% Employment History
 % ----------------------------------------------
 \vspace{2ex}
 \section{\faBriefcase{} Professional Experience}
@@ -330,33 +326,33 @@
 %
 %
 % ----------------------------------------------
-%				Projects
+% Projects
 % ----------------------------------------------
 \vspace{-2ex}
 \section{\faSave[regular]{} Projects}
 % \vspace{-1ex}
 \begin{tabular*}{\textwidth}{@{\hspace{.5em}}l|l@{\hspace{.5em}}}
-	\color{jobTitleText}\textbf{Project1} 			& Some text here about the project.\\
-	\color{lightText}(Language) 					& Some more text here about the project.\\
-	\hfill 											& Some more text here about the project.\\
-	\hfill 											& Some more text here about the project.\\
-	\hfill 											& Some more text here about the project.\vspace{1.5ex}\\
-	\color{jobTitleText}\textbf{Project2} 			& Some text here about the project.\\
-	\color{jobTitleText}\textbf{2nd line} 			& Some more text here about the project.\\
-	\color{lightText} (Language) 					& Some more text here about the project.\\
-	\hfill 											& Some more text here about the project.\\
-	\hfill 											& Some more text here about the project.\\
-	\hfill 											& Some more text here about the project.\\
-	\hfill 											& Some more text here about the project.\vspace{1.5ex}\\
-	\color{jobTitleText}\textbf{Project3} 			& Some text here about the project.\\
-	\color{jobTitleText}\textbf{2nd line} 			& Some more text here about the project.\\
-	\color{lightText} (Language1, 					& Some more text here about the project.\\
-	\color{lightText} Package1 \& 		 			& Some more text here about the project.\\
-	\color{lightText} Package2)						& Some more text here about the project.\\
-	\hfill 											& Some more text here about the project.\vspace{1.5ex}\\
-	\color{jobTitleText}\textbf{Project4} 			& Some text here about the project.\\
-	\color{jobTitleText}\textbf{2nd line} 			& Some more text here about the project.\\
-	\color{lightText} (Language) 					& Some more text here about the project.\\
+	\color{jobTitleText}\textbf{Project1} & Some text here about the project.\\
+	\color{lightText}(Language) & Some more text here about the project.\\
+	\hfill & Some more text here about the project.\\
+	\hfill & Some more text here about the project.\\
+	\hfill & Some more text here about the project.\vspace{1.5ex}\\
+	\color{jobTitleText}\textbf{Project2} & Some text here about the project.\\
+	\color{jobTitleText}\textbf{2nd line} & Some more text here about the project.\\
+	\color{lightText} (Language) & Some more text here about the project.\\
+	\hfill & Some more text here about the project.\\
+	\hfill & Some more text here about the project.\\
+	\hfill & Some more text here about the project.\\
+	\hfill & Some more text here about the project.\vspace{1.5ex}\\
+	\color{jobTitleText}\textbf{Project3} & Some text here about the project.\\
+	\color{jobTitleText}\textbf{2nd line} & Some more text here about the project.\\
+	\color{lightText} (Language1, & Some more text here about the project.\\
+	\color{lightText} Package1 \& & Some more text here about the project.\\
+	\color{lightText} Package2)	& Some more text here about the project.\\
+	\hfill & Some more text here about the project.\vspace{1.5ex}\\
+	\color{jobTitleText}\textbf{Project4} & Some text here about the project.\\
+	\color{jobTitleText}\textbf{2nd line} & Some more text here about the project.\\
+	\color{lightText} (Language) & Some more text here about the project.\\
 \end{tabular*}
 %
 \end{minipage}}}
