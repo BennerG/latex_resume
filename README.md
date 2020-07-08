@@ -14,7 +14,8 @@ The major benefit that you get from working with LaTeX compared to other word pr
 2. Read as much of the documentation as you need to get familiar enough with the language to understand and manipulate one of the default templates. Start with the **Read Me First** document that comes with your distribution. It should show you how to create your first .tex file. You'll probably end up Googling a whole bunch of macros and keywords from there. There is also a .pdf file for every\* package out there, and many of them are included with your download. Or, you can find additional packages and documentation online at the [CTAN: Comprehensive TeX Archive Network](https://ctan.org/).
 3. Work from a quality text editor, like Visual Studio Code. This was my preference compared to the MacOS version of TeXShop I downloaded. There are probably other tools that work just as well. Whatever you choose, use something that you are familiar with and that provides decent syntax highlighting. By doing this, you can learn the language without getting hung up on the particulars of the development environment.
 4. Write down your content. Decide what you want to include on your resume. Usually, you'll want about five major sections for your resume:
-`   Contact Information | Education | Skills | Professional Experience | Projects`
+
+   Contact Information | Education | Skills | Professional Experience | Projects
 5. Refine the style and layout of your content. Like, HTML and CSS, you can add the style into a separate file with a .cls extension, add style to a header-like section before the \begin{document} macro, or add style adjustments inline.
 
 Take a look at [my example](Resume.tex), and feel free to copy it, use it, and modify it however you want. It's not perfect, but it should provide you with a decent starting point.
