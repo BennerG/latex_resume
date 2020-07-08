@@ -20,6 +20,10 @@ The major benefit that you get from working with LaTeX compared to other word pr
 
 Take a look at [my example](Resume.tex), and feel free to copy it, use it, and modify it however you want. It's not perfect, but it should provide you with a decent starting point.
 
+## Sourcecode vs. Output
+The real sourcode for this project is located in [Resume.tex](Resume.tex). The output is the [Resume.pdf](Resume.pdf) file that is generated after compilation. All the other files are a result of running the `pdflatex Resume.tex` command.
+
+
 --------------------------------------------------------------
 \* I have yet to find a package that doesn't have some kind of .pdf with all the documentation you'll need to use it.
 
